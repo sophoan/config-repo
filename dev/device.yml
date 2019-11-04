@@ -1,0 +1,26 @@
+security:
+  oauth2:
+    client:
+      clientId: service-device
+      clientSecret: 1234
+      accessTokenUri: http://localhost:8081/sso/oauth/token
+      grant-type: client_credentials
+      scope: server
+      
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27011
+      username: db-user
+      password: k309afIu9w
+      database: poscarface-device
+
+server:
+  servlet:
+    context-path: /device
+  port: 8083
+  
+feign:
+  hystrix:
+    enabled: true
