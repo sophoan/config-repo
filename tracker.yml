@@ -1,0 +1,29 @@
+security:
+  oauth2:
+    client:
+      clientId: service-tracker
+      clientSecret: 1234
+      accessTokenUri: http://localhost:8081/sso/oauth/token
+      grant-type: client_credentials
+      scope: server
+      
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27011
+      username: db-user
+      password: k309afIu9w
+      database: poscarface-tracker
+
+server:
+  servlet:
+    context-path: /tracker
+  port: 8084
+
+feign:
+  hystrix:
+    enabled: true
+  
+file:
+   upload-dir: /Users/sophoan/Desktop/Data/B_Meng/trackers

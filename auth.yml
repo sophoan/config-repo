@@ -1,0 +1,12 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27011
+      username: db-user
+      password: k309afIu9w
+      database: poscarface-auth
+server:
+  servlet:
+    context-path: /sso
+  port: 8081

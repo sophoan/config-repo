@@ -1,0 +1,56 @@
+ribbon:
+  ReadTimeout: 20000
+  ConnectTimeout: 20000
+
+zuul:
+  ignored-headers: Access-Control-Allow-Credentials, Access-Control-Allow-Origin
+  ignoredServices: '*'
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 20000
+
+  routes:
+    auth:
+      path: /sso/** #path that will be intercepted
+      serviceId: auth
+      stripPrefix: false #if zuul should replace the "/uaa/" segment
+      sensitiveHeaders:
+    
+    auth-service:
+      path: /uaa/** #path that will be intercepted
+      url: auth-service #which url the request will e mapped to
+      stripPrefix: false #if zuul should replace the "/uaa/" segment
+      sensitiveHeaders:
+      
+    device:
+      path: /device/**
+      serviceId: device
+      stripPrefix: false
+      sensitiveHeaders:
+      
+    tracker:
+      path: /tracker/**
+      serviceId: tracker
+      stripPrefix: false
+      sensitiveHeaders:
+      
+    attendance:
+      path: /attendance/**
+      serviceId: attendance
+      stripPrefix: false
+      sensitiveHeaders:
+      
+    account:
+      path: /account/**
+      serviceId: account
+      stripPrefix: false
+      sensitiveHeaders:
+
+server:
+  port: 8080
+  
+spring:
+ servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: -1

@@ -1,0 +1,22 @@
+security:
+  oauth2:
+    client:
+      clientId: service-attendance
+      clientSecret: 1234
+      accessTokenUri: http://localhost:8081/sso/oauth/token
+      grant-type: client_credentials
+      scope: server
+      
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27011
+      username: db-user
+      password: k309afIu9w
+      database: poscarface-attendance
+
+server:
+  servlet:
+    context-path: /attendance
+  port: 8085
